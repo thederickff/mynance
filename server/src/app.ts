@@ -1,6 +1,11 @@
 import cors from 'cors';
 import express, { json, Router } from 'express';
 import { Request, Response } from "express";
+import config from 'config';
+import { Spot } from '@binance/connector';
+
+const { apiKey, apiSecret } = config.get('binance');
+const client = new Spot(apiKey, apiSecret);
 
 const router = Router();
 // Middlewares
@@ -20,8 +25,14 @@ router.use(
 router.use(json({}));
 
 // Routes
-router.get('/hello', (req: Request, res: Response) => {
-  res.status(200).send({ message: req.query.message });
+router.get('/account', async (req: Request, res: Response) => {
+  const response = await client.account();
+  res.status(200).send({ message: response.data });
+});
+
+router.get('/myTrades', async (req: Request, res: Response) => {
+  const response = await client.myTrades('LTCUSDT');
+  res.status(200).send({ message: response.data });
 });
 
 // Initialization

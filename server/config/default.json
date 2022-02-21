@@ -1,0 +1,6 @@
+{
+  "binance": {
+    "apiKey": "DO_NOT_HARD_CODE",
+    "apiSecret": "DO_NOT_HARD_CODE"
+  }
+}

@@ -12,10 +12,13 @@
   "author": "derickfelix",
   "license": "MIT",
   "dependencies": {
+    "@binance/connector": "^1.7.0",
+    "config": "^3.3.7",
     "cors": "^2.8.5",
     "express": "^4.17.3"
   },
   "devDependencies": {
+    "@types/config": "^0.0.41",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/node": "^17.0.18",
